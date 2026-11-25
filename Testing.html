@@ -48,7 +48,10 @@
   @keyframes denyut { 0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,.35); } 50% { box-shadow: 0 0 0 5px rgba(255,255,255,0); } }
   .kemajuan { height: 4px; background: var(--merah); }
   .kemajuan span { display: block; height: 100%; width: 0; background: #FFC9CC; transition: width .3s ease; }
-  @media (max-width: 560px) { .merek-teks small { display: none; } .pil .label-pil { display: none; } }
+  @media (max-width: 560px) { .pil .label-pil { display: none; } }
+  .chip-paket { display: inline-flex; align-items: center; margin-top: 12px; font-size: 13px; font-weight: 800; color: var(--ungu); background: var(--ungu-muda); border: 1px solid var(--ungu-garis); padding: 6px 12px; border-radius: 999px; }
+  .chip-paket:empty { display: none; }
+  .soal-kepala { flex-wrap: wrap; }
   .kanvas { max-width: 1040px; margin: 0 auto; padding: 34px 20px 90px; }
   .sempit { max-width: 720px; margin: 0 auto; }
   .layar { display: none; }
@@ -232,6 +235,7 @@
   <section class="layar sempit aktif" id="layarMulai">
     <span class="eyebrow" id="eyebrow"></span>
     <h1 id="judulKuis"></h1>
+    <span class="chip-paket" id="chipPaket"></span>
     <p class="pengantar" id="deskripsiKuis"></p>
     <div class="banner merah" id="bannerBank" hidden=""></div>
     <div class="statistik">
@@ -451,34 +455,33 @@ const DATA_UJIAN = /*DATA*/{
    "soal": [
     {
      "t": "pg",
-     "q": "Next week, my family ____ to Yogyakarta.",
+     "q": "Every morning, the mechanic ____ the engine before opening the workshop.",
      "p": [
-      "go",
-      "will go",
-      "went",
-      "going"
+      "check",
+      "checks",
+      "checked",
+      "will check"
      ],
      "j": 1,
      "b": 1
     },
     {
      "t": "pg",
-     "q": "Look! The students ____ football in the yard.",
+     "q": "Welders ____ safety gloves when they work.",
      "p": [
-      "play",
-      "played",
-      "are playing",
-      "will play"
+      "wears",
+      "wearing",
+      "wear",
+      "wore"
      ],
      "j": 2,
      "b": 1
     },
     {
      "t": "isian",
-     "q": "She ____ (visit) her aunt next Sunday.",
+     "q": "My father ____ (work) in an automotive workshop every day.",
      "j": [
-      "will visit",
-      "is going to visit"
+      "works"
      ],
      "b": 3
     }
@@ -489,33 +492,145 @@ const DATA_UJIAN = /*DATA*/{
    "soal": [
     {
      "t": "pg",
-     "q": "When you called, I ____ a shower.",
+     "q": "Yesterday, our teacher ____ us about electrical safety.",
      "p": [
-      "take",
-      "am taking",
-      "was taking",
-      "will take"
+      "teach",
+      "teaches",
+      "taught",
+      "will teach"
+     ],
+     "j": 2,
+     "b": 1
+    },
+    {
+     "t": "pg",
+     "q": "The technician ____ the broken lamp last Monday.",
+     "p": [
+      "repairs",
+      "repaired",
+      "repair",
+      "will repair"
      ],
      "j": 1,
      "b": 1
     },
     {
+     "t": "isian",
+     "q": "We ____ (visit) a welding workshop last week.",
+     "j": [
+      "visited"
+     ],
+     "b": 3
+    }
+   ]
+  },
+  {
+   "nama": "Paket C",
+   "soal": [
+    {
      "t": "pg",
-     "q": "Mom ____ in the kitchen right now.",
+     "q": "Next month, our class ____ a car engine exhibition.",
      "p": [
-      "cooks",
-      "is cooking",
-      "was cooking",
-      "cooked"
+      "visit",
+      "visited",
+      "visits",
+      "will visit"
+     ],
+     "j": 3,
+     "b": 1
+    },
+    {
+     "t": "pg",
+     "q": "I think the electrician ____ the wiring tomorrow.",
+     "p": [
+      "will finish",
+      "finished",
+      "finishes",
+      "finishing"
+     ],
+     "j": 0,
+     "b": 1
+    },
+    {
+     "t": "isian",
+     "q": "She ____ (buy) new tools next Sunday.",
+     "j": [
+      "will buy",
+      "is going to buy"
+     ],
+     "b": 3
+    }
+   ]
+  },
+  {
+   "nama": "Paket D",
+   "soal": [
+    {
+     "t": "pg",
+     "q": "My brother ____ to school by motorcycle every day.",
+     "p": [
+      "goes",
+      "go",
+      "going",
+      "went"
+     ],
+     "j": 0,
+     "b": 1
+    },
+    {
+     "t": "pg",
+     "q": "Last night, we ____ a movie about racing cars.",
+     "p": [
+      "watch",
+      "watches",
+      "watched",
+      "will watch"
      ],
      "j": 2,
      "b": 1
     },
     {
      "t": "isian",
-     "q": "The students ____ (take) a test at the moment.",
+     "q": "They ____ (play) football after school every Friday.",
      "j": [
-      "are taking"
+      "play"
+     ],
+     "b": 3
+    }
+   ]
+  },
+  {
+   "nama": "Paket E",
+   "soal": [
+    {
+     "t": "pg",
+     "q": "Water ____ at 100 degrees Celsius.",
+     "p": [
+      "boiled",
+      "boil",
+      "will boil",
+      "boils"
+     ],
+     "j": 3,
+     "b": 1
+    },
+    {
+     "t": "pg",
+     "q": "Tomorrow, Pak Budi ____ us how to weld steel.",
+     "p": [
+      "showed",
+      "will show",
+      "shows",
+      "showing"
+     ],
+     "j": 1,
+     "b": 1
+    },
+    {
+     "t": "isian",
+     "q": "Rina ____ (go) to the workshop last Saturday.",
+     "j": [
+      "went"
      ],
      "b": 3
     }
@@ -689,6 +804,7 @@ const KUNCI_SANDI = "smkmikael:sandi:" + ID_UJIAN;
 const KUNCI_RESET = "smkmikael:reset:" + ID_UJIAN;
 const KUNCI_SIMPAN = "smkmikael:kuis:" + ID_UJIAN;
 const PAKAI_BOBOT = KONFIG.modeNilai === "bobot";
+const namaPaket = n => KONFIG.bahasa === "en" ? String(n).replace(/^paket\b/i, "Set") : String(n);
 
 const S = {
   mulai: false, selesai: false, direset: false,
@@ -917,7 +1033,7 @@ window.addEventListener("beforeunload", e => {
 
 function renderSoal() {
   const i = S.indeks, s = S.soal[i], total = S.soal.length;
-  $("nomor").innerHTML = `${T("soalKe", { i: i + 1 })}<span> / ${total}</span>`;
+  $("nomor").innerHTML = `${T("soalKe", { i: i + 1 })}<span> / ${total} \u00b7 ${esc(S.paket)}</span>`;
   $("jenis").textContent = (s.t === "pg" ? T("jenisPG") : T("jenisIsian"))
     + (PAKAI_BOBOT ? ` \u00b7 ${T("bobot")} ${fmtAngka(bobotSoal(s))}` : "");
   $("pertanyaan").textContent = s.q;
@@ -1202,7 +1318,7 @@ function rencanaSah(r) {
 function terapkanRencana(r) {
   const pk = BANK_SOAL[r.paket] || BANK_SOAL[0];
   S.rencana = r;
-  S.paket = pk.nama || `Paket ${r.paket + 1}`;
+  S.paket = namaPaket(pk.nama || `Paket ${r.paket + 1}`);
   S.soal = r.urut.map(i => {
     const s = pk.soal[i], soal = { ...s, asli: i };
     const ord = r.pilihan ? r.pilihan[i] : null;
@@ -1216,7 +1332,8 @@ function terapkanRencana(r) {
   const info = nPG && nIsian ? T("infoCampur", { n, pg: nPG, isian: nIsian }) : nPG ? T("infoPG", { n }) : T("infoIsian", { n });
   renderAturan(info, nIsian > 0);
   $("statSoal").textContent = n;
-  $("kopJudul").textContent = `${KONFIG.judul} \u00b7 ${labelPaket()}`;
+  $("kopJudul").textContent = `${labelPaket()} \u00b7 ${KONFIG.judul}`;
+  $("chipPaket").textContent = labelPaket();
 }
 
 function tampilkanLanjut() {
